@@ -69,7 +69,7 @@ points(tl_lymphoc ~ tl_granuloc, data = data_adults[data_adults$dataset == "Alde
 abline(lm(tl_lymphoc ~ tl_granuloc, data_adults[data_adults$dataset == "Alder", ]), col = cols[1], lwd = 2)
 
 # Plot both cell types by age
-plot(tl_lymphoc ~ age, data = data[data$dataset == "Aubert", ], ylim = c(min, max), frame.plot = F, type = "n", main = "Aubert", ylab = "TL, bp")
+plot(tl_lymphoc ~ age, data = data[data$dataset == "Aubert", ], ylim = c(min, max), frame.plot = F, type = "n", main = "Aubert", ylab = "TL, kbp")
 points(tl_lymphoc ~ age, data = data[data$dataset == "Aubert", ], col = cols[2])
 points(tl_granuloc ~ age, data = data[data$dataset == "Aubert", ], col = cols[3])
 legend("topright", legend = c("lymphocytes", "granulocytes"), col = cols[2:3], pch = 1)
@@ -77,12 +77,12 @@ clip(18, 102, 0, 20) # Show regression for adults only
 abline(lm(tl_lymphoc ~ age, data = data_adults[data_adults$dataset == "Aubert", ]), col = cols[2], lwd = 2)
 abline(lm(tl_granuloc ~ age, data = data_adults[data_adults$dataset == "Aubert", ]), col = cols[3], lwd = 2)
 
-plot(tl_lymphoc ~ age, data = data[data$dataset == "Werner", ], ylim = c(min, max), frame.plot = F, type = "n", main = "Werner", ylab = "TL, bp")
+plot(tl_lymphoc ~ age, data = data[data$dataset == "Werner", ], ylim = c(min, max), frame.plot = F, type = "n", main = "Werner", ylab = "TL, kbp")
 points(tl_lymphoc ~ age, data = data[data$dataset == "Werner", ], col = cols[2])
 points(tl_granuloc ~ age, data = data[data$dataset == "Werner", ], col = cols[3])
 legend("topright", legend = c("lymphocytes", "granulocytes"), col = cols[2:3], pch = 1)
 
-plot(tl_lymphoc ~ age, data = data[data$dataset == "Alder", ], ylim = c(min, max), frame.plot = F, type = "n", main = "Alder", ylab = "TL, bp")
+plot(tl_lymphoc ~ age, data = data[data$dataset == "Alder", ], ylim = c(min, max), frame.plot = F, type = "n", main = "Alder", ylab = "TL, kbp")
 points(tl_lymphoc ~ age, data = data[data$dataset == "Alder", ], col = cols[2])
 points(tl_granuloc ~ age, data = data[data$dataset == "Alder", ], col = cols[3])
 legend("topright", legend = c("lymphocytes", "granulocytes"), col = cols[2:3], pch = 1)

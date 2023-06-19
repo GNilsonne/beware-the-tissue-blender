@@ -119,3 +119,22 @@ brm5a <- brm(formula = tl_lymphoc ~ tl_granuloc * age
             control = list(adapt_delta = 0.95))
 
 
+# Plot Alter
+alter_gran <- read.csv2("./Alter_2007_fig1_digitized_2023-06-12/Granulocytes.csv")
+alter_lymph <- read.csv2("./Alter_2007_fig1_digitized_2023-06-12/lymphocytes.csv")
+
+colnames(alter_gran) <- c("age", "kb")
+colnames(alter_lymph) <- c("age", "kb")
+
+# Plot both cell types by age
+plot(kb ~ age, data = alter_gran, ylim = c(min, max), frame.plot = F, type = "n", main = "Alter", ylab = "TL, kbp")
+points(kb ~ age, data = alter_gran, col = cols[3])
+points(kb ~ age, data = alter_lymph, col = cols[2])
+legend("topright", legend = c("lymphocytes", "granulocytes"), col = cols[2:3], pch = 1)
+
+clip(18, 102, 0, 20) # Show regression for adults only
+abline(lm(kb ~ age, data = alter_lymph), col = cols[2], lwd = 2)
+abline(lm(kb ~ age, data = alter_gran), col = cols[3], lwd = 2)
+
+
+

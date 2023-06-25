@@ -136,5 +136,23 @@ clip(18, 102, 0, 20) # Show regression for adults only
 abline(lm(kb ~ age, data = alter_lymph), col = cols[2], lwd = 2)
 abline(lm(kb ~ age, data = alter_gran), col = cols[3], lwd = 2)
 
+# Plot terasaki
+
+terasaki_gran <- read.csv2("./Terasaki_2002_fig1_digitized_2023-06-12/granulocytes.csv")
+terasaki_lymph <- read.csv2("./Terasaki_2002_fig1_digitized_2023-06-12/t-cells.csv")
+
+colnames(terasaki_gran) <- c("age", "kb")
+colnames(terasaki_lymph) <- c("age", "kb")
+
+# Plot both cell types by age
+plot(kb ~ age, data = terasaki_gran, ylim = c(0, 14), xlim=c(0,100), frame.plot = F, type = "n", main = "Terasaki", ylab = "TL, kbp")
+points(kb ~ age, data = terasaki_gran, col = cols[3])
+points(kb ~ age, data = terasaki_lymph, col = cols[2])
+legend("topright", legend = c("t-lymphocytes", "granulocytes"), col = cols[2:3], pch = 1)
+
+clip(18, 102, 0, 20) # Show regression for adults only
+abline(lm(kb ~ age, data = terasaki_lymph), col = cols[2], lwd = 2)
+abline(lm(kb ~ age, data = terasaki_gran), col = cols[3], lwd = 2)
+
 
 
